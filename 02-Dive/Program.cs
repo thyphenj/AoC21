@@ -8,12 +8,12 @@ namespace _02_Dive
         static void Main(string[] args)
         {
             //Test data
-            //int[] input = { 199, 200, 208, 210, 200, 207, 240, 269, 260, 263 };
+            //string[] input = { "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" };
 
             string[] input = ReadInput("input.txt");
 
             //-----------------------------------------------------------
-            // -- Part 1 : Find position
+            // -- Part 1 : Find position by Depth
             {
                 int pos = 0;
                 int depth = 0;
@@ -36,7 +36,7 @@ namespace _02_Dive
                             break;
                     }
                 }
-                Console.WriteLine(pos * depth); ;
+                Console.WriteLine($"Part 1 : {pos * depth}"); ;
             }
             //-----------------------------------------------------------
             // -- Part 2 : Find position by AIM
@@ -67,11 +67,11 @@ namespace _02_Dive
                             break;
                     }
                 }
-                Console.WriteLine(pos * depth); ;
+                Console.WriteLine($"Part 2 : {pos * depth}");
             }
         }
 
-        internal static string[] ReadInput (string filename)
+        internal static string[] ReadInput(string filename)
         {
             string[] input = File.ReadAllLines(filename);
 
