@@ -8,68 +8,104 @@ namespace _03_BinaryDiagnostic
     {
         static void Main(string[] args)
         {
-            string[] input = File.ReadAllLines("testinput.txt");
-
-            List<string> keepers = new List<string>();
-
-            int wordCount = input.Length;
-            int wordLength = input[0].Length;
+            List<string> input = GetFileContents("Input.txt");
             //-----------------------------------------------------------
             // -- Part 1 : Find Gamma and Delta
 
-            int[] ones = new int[wordLength];
+            int wordLength = input[0].Length;
 
-            //-- Count "set" bits
-            foreach (var currWord in input)
-            {
-                keepers.Add(currWord);
-
-                for (int j = 0; j < wordLength; j++)
-                {
-                    if (currWord[j] == '1')
-                        ones[j]++;
-                }
-            }
-
-            //-- Convert array to string?!
             string gamma = "";
             string delta = "";
-
             for (int i = 0; i < wordLength; i++)
             {
-                if (2*ones[i] > wordCount )
-                {
-                    gamma += '1';
-                    delta += '0';
-                }
-                else
-                {
-                    gamma += '0';
-                    delta += '1';
-                }
+                char[] mostCommon = MostAndLeastCommonAtPosition(input, i);
+                gamma += mostCommon[0];
+                delta += mostCommon[1];
             }
             int product = ToInteger(gamma) * ToInteger(delta);
+
             Console.WriteLine($"Part 1 : {ToInteger(gamma)} {ToInteger(delta)} -> {product}");
 
             //-----------------------------------------------------------
             // -- Part 2 :
 
-            for (int i = 0 ; i < wordLength; i++)
+            List<string> ogr = new List<string>(input);
+            List<string> csr = new List<string>(input);
+            int OGR = 0;
+            int CSR = 0;
+
+            for (int i = 0; i < wordLength; i++)
             {
-                char digit = gamma[i];
-                foreach (var s in input)
+                List<string> ogrKeep = new List<string>();
+                List<string> csrKeep = new List<string>();
+
+                char[] digit = MostAndLeastCommonAtPosition(ogr, i);
+                foreach (var s in ogr)
                 {
-                    if (s[i] != digit)
-                        keepers.Remove(s);
+                    if (s[i] == digit[0])
+                    {
+                        ogrKeep.Add(s);
+                    }
                 }
-                Console.WriteLine($"{i,2} {keepers.Count}");
+                digit = MostAndLeastCommonAtPosition(csr, i);
+                foreach ( var s in csr)
+                { 
+                    if (s[i] == digit[1])
+                    {
+                        csrKeep.Add(s);
+                    }
+                }
+                if (ogrKeep.Count == 1)
+                {
+                    OGR = ToInteger(ogrKeep[0]);
+                    ogrKeep.RemoveAt(0);
+
+                }
+                if (csrKeep.Count == 1)
+                {
+                    CSR = ToInteger(csrKeep[0]);
+                    csrKeep.RemoveAt(0);
+                }
+                ogr = ogrKeep;
+                csr = csrKeep;
             }
+            Console.WriteLine($"Part 2 : {OGR*CSR}");
         }
 
-        static int ToInteger ( string bin)
+        // ------------------------------------------------------------------------------------------------
+        static List<string> GetFileContents(string filename)
+        {
+            List<string> retval = new List<string>();
+
+            foreach (var s in File.ReadAllLines(filename))
+            {
+                retval.Add(s);
+            }
+            return retval;
+        }
+
+        static char[] MostAndLeastCommonAtPosition(List<string> input, int pos)
+        {
+            int sum0 = 0;
+            int sum1 = 0;
+            foreach (var num in input)
+            {
+                if (num[pos] == '1')
+                    sum1++;
+                else
+                    sum0++;
+            }
+            if (sum0 > sum1)
+                return new char[] { '0', '1' };
+            else
+                return new char[] { '1', '0' };
+
+        }
+
+        static int ToInteger(string bin)
         {
             int retval = 0;
-            foreach ( var s in bin)
+            foreach (var s in bin)
             {
                 retval *= 2;
                 if (s == '1')
