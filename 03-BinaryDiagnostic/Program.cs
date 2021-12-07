@@ -8,74 +8,74 @@ namespace _03_BinaryDiagnostic
     {
         static void Main(string[] args)
         {
-            string[] originalFile = { "00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010" };
-            //string[] originalFile = File.ReadAllLines("input.txt");
+            string[] input = File.ReadAllLines("testinput.txt");
 
-            List<Number> input = new List<Number>();
-            foreach (var str in originalFile)
-            {
-                input.Add(new Number(str));
-            }
+            List<string> keepers = new List<string>();
 
-            int wordCount = input.Count;
-            int wordLength = input[0].ValueAsString.Length;
+            int wordCount = input.Length;
+            int wordLength = input[0].Length;
             //-----------------------------------------------------------
             // -- Part 1 : Find Gamma and Delta
 
-            long[] ones = new long[wordLength];
+            int[] ones = new int[wordLength];
 
             //-- Count "set" bits
             foreach (var currWord in input)
             {
+                keepers.Add(currWord);
+
                 for (int j = 0; j < wordLength; j++)
                 {
-                    if (currWord.ValueAsString[j] == '1')
+                    if (currWord[j] == '1')
                         ones[j]++;
                 }
             }
 
             //-- Convert array to string?!
-            long gamma = 0, delta = 0;
-            string gammaString = "", deltaString = "";
+            string gamma = "";
+            string delta = "";
 
             for (int i = 0; i < wordLength; i++)
             {
-                gamma *= 2;
-                delta *= 2;
-                if (ones[i] >= wordCount / 2)
+                if (2*ones[i] > wordCount )
                 {
-                    gamma++;
-                    gammaString += '1';
-                    deltaString += '0';
+                    gamma += '1';
+                    delta += '0';
                 }
                 else
                 {
-                    delta++;
-                    gammaString += '0';
-                    deltaString += '1';
+                    gamma += '0';
+                    delta += '1';
                 }
             }
-
-            Console.WriteLine($"Part 1 : {gamma} {delta} -> {gamma * delta}");
+            int product = ToInteger(gamma) * ToInteger(delta);
+            Console.WriteLine($"Part 1 : {ToInteger(gamma)} {ToInteger(delta)} -> {product}");
 
             //-----------------------------------------------------------
-            // -- Part 1 : Find Gamma and Delta
+            // -- Part 2 :
 
-            for (int i = 0; i < wordLength; i++)
+            for (int i = 0 ; i < wordLength; i++)
             {
-                foreach (var num in input)
+                char digit = gamma[i];
+                foreach (var s in input)
                 {
-                    if (!num.Removed)
-                    {
-                        if (num.ValueAsString[i] != gammaString[i])
-                        {
-                            num.Removed = true;
-                        }
-                    }
+                    if (s[i] != digit)
+                        keepers.Remove(s);
                 }
-                Console.WriteLine();
+                Console.WriteLine($"{i,2} {keepers.Count}");
             }
         }
 
+        static int ToInteger ( string bin)
+        {
+            int retval = 0;
+            foreach ( var s in bin)
+            {
+                retval *= 2;
+                if (s == '1')
+                    retval += 1;
+            }
+            return retval;
+        }
     }
 }
