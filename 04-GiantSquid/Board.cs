@@ -18,6 +18,12 @@ namespace _04_GiantSquid
                 Cells[i] = int.Parse(board.Substring(i * 3, 2));
                 Matched[i] = false;
             }
+
+            if (board.Replace("  ", " ").Trim() != string.Join(' ', Cells).Trim())
+            {
+                Console.WriteLine(board.Replace("  ", " ").Trim());
+                Console.WriteLine(string.Join(' ', Cells).Trim());
+            }
         }
 
         public bool SetMatched(int number)
@@ -27,11 +33,24 @@ namespace _04_GiantSquid
                 if (Cells[i] == number)
                 {
                     Matched[i] = true;
-                    return CheckRow(i) || CheckCol(i);
+                    Completed = (CheckRow(i) || CheckCol(i));
+                    return Completed;
                 }
             }
             return false;
         }
+
+        public int Score(int num)
+        {
+            int sum = 0;
+            for (int i = 0; i < 25; i++)
+            {
+                if (!Matched[i])
+                    sum += Cells[i];
+            }
+            return sum * num;
+        }
+
         public void Draw()
         {
             string left = "";
@@ -60,20 +79,18 @@ namespace _04_GiantSquid
 
         private bool CheckRow(int index)
         {
-            int from = 5*(index / 5);
-            for (int i = from; i < from + 4; i++)
+            int from = 5 * (index / 5);
+            for (int i = from; i < from + 5; i++)
                 if (!Matched[i])
                     return false;
-            Console.WriteLine("ROW");
             return true;
         }
         private bool CheckCol(int index)
         {
             int col = index % 5;
-            for (int i = col; i < 25; i+=5)
+            for (int i = col; i < 25; i += 5)
                 if (!Matched[i])
                     return false;
-            Console.WriteLine("COL");
             return true;
         }
     }

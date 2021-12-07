@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace _04_GiantSquid
 {
@@ -10,36 +11,21 @@ namespace _04_GiantSquid
         {
             var input = new FileContents("input.txt");
 
-            foreach ( var num in input.Numbers)
+            foreach (var num in input.Numbers)
             {
-                Console.WriteLine($"--------------------{num}");
-                foreach ( var brd in input.Boards)
+                Console.WriteLine($"--------------------> {num}");
+                foreach (var brd in input.Boards.Where(x => !x.Completed))
                 {
-                    if (!brd.Completed)
+                    if (brd.SetMatched(num))
                     {
-                        if (brd.SetMatched(num))
-                        {
-                            brd.Completed = true;
-                            int score = CalculateScore(brd, num);
-                            Console.WriteLine($"Part 1 : {score} ({num})");
-                        }
+                        Console.WriteLine($"Score : {brd.Score(num)}");
+                        brd.Completed = true;
                         brd.Draw();
                     }
                 }
-
                 if (input.CountUnsolved() == 0)
                     break;
             }
-        }
-        static int CalculateScore ( Board brd, int num)
-        {
-            int sum = 0;
-            for (int i = 0; i < 25; i++)
-            {
-                if (!brd.Matched[i])
-                    sum += brd.Cells[i];
-            }
-            return sum * num;
         }
     }
 }
