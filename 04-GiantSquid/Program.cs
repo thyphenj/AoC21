@@ -8,18 +8,38 @@ namespace _04_GiantSquid
     {
         static void Main(string[] args)
         {
-            List<Board> Boards = new List<Board>();
-            List<int> Numbers = new List<int>();
+            var input = new FileContents("input.txt");
 
-            Console.WriteLine("Hello World");
+            foreach ( var num in input.Numbers)
+            {
+                Console.WriteLine($"--------------------{num}");
+                foreach ( var brd in input.Boards)
+                {
+                    if (!brd.Completed)
+                    {
+                        if (brd.SetMatched(num))
+                        {
+                            brd.Completed = true;
+                            int score = CalculateScore(brd, num);
+                            Console.WriteLine($"Part 1 : {score} ({num})");
+                        }
+                        brd.Draw();
+                    }
+                }
+
+                if (input.CountUnsolved() == 0)
+                    break;
+            }
         }
-
-        private static (List<int>,List<Board>) ReadFile ( string filename)
+        static int CalculateScore ( Board brd, int num)
         {
-            List<Board> retBoards = new List<Board>();
-            List<int> retNumbers = new List<int>();
-
-            return (retNumbers, retBoards);
+            int sum = 0;
+            for (int i = 0; i < 25; i++)
+            {
+                if (!brd.Matched[i])
+                    sum += brd.Cells[i];
+            }
+            return sum * num;
         }
     }
 }

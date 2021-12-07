@@ -5,8 +5,8 @@ namespace _04_GiantSquid
 {
     public class FileContents
     {
-        List<Board> Boards = new List<Board>();
-        List<int> Numbers = new List<int>();
+        public List<Board> Boards = new List<Board>();
+        public List<int> Numbers = new List<int>();
 
         public FileContents(string filename)
         {
@@ -19,8 +19,20 @@ namespace _04_GiantSquid
             int lineNo = 2; // zero based
             while (lineNo < contents.Length)
             {
-
+                Boards.Add(new Board($"{contents[lineNo]} {contents[lineNo + 1]} {contents[lineNo + 2]} {contents[lineNo + 3]} {contents[lineNo + 4]}"));
+                lineNo+=6;
             }
+        }
+
+        public int CountUnsolved ()
+        {
+            int solved = 0;
+            foreach ( var b in Boards)
+            {
+                if (b.Completed)
+                    solved++;
+            }
+            return Boards.Count - solved;
         }
     }
 }

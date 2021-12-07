@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-BinaryDiagnostic", "03-B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-GiantSquid", "04-GiantSquid\04-GiantSquid.csproj", "{38B96AEA-316C-4169-A375-A221C8A0381F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-HydrothermalVenture", "05-HydrothermalVenture\05-HydrothermalVenture.csproj", "{5DD8D864-A6CD-464D-ADDA-60691E4E72EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-Lanternfish", "06-Lanternfish\06-Lanternfish.csproj", "{4856EE77-B08C-4A29-A206-8683D69FD5CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{38B96AEA-316C-4169-A375-A221C8A0381F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38B96AEA-316C-4169-A375-A221C8A0381F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38B96AEA-316C-4169-A375-A221C8A0381F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DD8D864-A6CD-464D-ADDA-60691E4E72EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DD8D864-A6CD-464D-ADDA-60691E4E72EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DD8D864-A6CD-464D-ADDA-60691E4E72EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DD8D864-A6CD-464D-ADDA-60691E4E72EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4856EE77-B08C-4A29-A206-8683D69FD5CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4856EE77-B08C-4A29-A206-8683D69FD5CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4856EE77-B08C-4A29-A206-8683D69FD5CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4856EE77-B08C-4A29-A206-8683D69FD5CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
