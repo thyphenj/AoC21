@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-Lanternfish", "06-Lanter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-TheTreacheryOfWhales", "07-TheTreacheryOfWhales\07-TheTreacheryOfWhales.csproj", "{531ACF55-850F-4528-8B69-EF19B91EF816}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-SevenSegmentSearch", "08-SevenSegmentSearch\08-SevenSegmentSearch.csproj", "{CBB33062-C6AF-4BF0-AB91-AA47DA545DDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{531ACF55-850F-4528-8B69-EF19B91EF816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{531ACF55-850F-4528-8B69-EF19B91EF816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{531ACF55-850F-4528-8B69-EF19B91EF816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB33062-C6AF-4BF0-AB91-AA47DA545DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB33062-C6AF-4BF0-AB91-AA47DA545DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB33062-C6AF-4BF0-AB91-AA47DA545DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB33062-C6AF-4BF0-AB91-AA47DA545DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
