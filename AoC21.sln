@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-SevenSegmentSearch", "08
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09-SmokeBasin", "09-SmokeBasin\09-SmokeBasin.csproj", "{090DE990-3555-4EC5-B7D2-67AC06812492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-SyntaxScoring", "10-SyntaxScoring\10-SyntaxScoring.csproj", "{C97B735E-F8F9-4B1B-A26A-F721D7FD12A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{090DE990-3555-4EC5-B7D2-67AC06812492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{090DE990-3555-4EC5-B7D2-67AC06812492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{090DE990-3555-4EC5-B7D2-67AC06812492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97B735E-F8F9-4B1B-A26A-F721D7FD12A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97B735E-F8F9-4B1B-A26A-F721D7FD12A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97B735E-F8F9-4B1B-A26A-F721D7FD12A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97B735E-F8F9-4B1B-A26A-F721D7FD12A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
