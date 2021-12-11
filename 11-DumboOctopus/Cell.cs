@@ -41,7 +41,7 @@ namespace _11_DumboOctopus
         }
         public override string ToString()
         {
-            return $"{Value,3}";
+            return $"{Value,2}";
         }
     }
 }

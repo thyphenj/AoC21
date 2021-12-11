@@ -80,6 +80,19 @@ namespace _11_DumboOctopus
             }
         }
 
+        public bool Unsynchronised()
+        {
+            int zero = Input[0, 0].Value;
+            for (int i = 0; i < Dimension; i++)
+            {
+                for (int j = 0; j < Dimension; j++)
+                {
+                    if (Input[i, j].Value != zero)
+                        return true;
+                }
+            }
+            return false;
+        }
 
         public override string ToString()
         {

@@ -6,15 +6,17 @@ namespace _11_DumboOctopus
 {
     class Program
     {
-        static int Dimension = 10;
-        static Cell[,] input;
         static Grid grid;
 
         static void Main(string[] args)
         {
-            grid = new Grid("Input.txt");
+            string filename = "Input.txt";
 
+            grid = new Grid(filename);
             Part1();
+
+            grid = new Grid(filename);
+            Part2();
         }
 
         static void Part1()
@@ -27,24 +29,24 @@ namespace _11_DumboOctopus
 
                 grid.AdjustFlashed();
             }
-            Console.WriteLine(grid.Flashes);
+            Console.WriteLine($"Part 1 : {grid.Flashes}");
         }
 
-
-        static string PrintGrid()
+        static void Part2()
         {
-            string retval = "";
-            for (int i = 0; i < Dimension; i++)
-            {
-                for (int j = 0; j < Dimension; j++)
-                {
-                    retval += $"{input[i, j].Value,3}";
-                }
-                retval += "\n";
-            }
-            retval += "\n";
+            int step = 0;
 
-            return retval;
+            while ( grid.Unsynchronised())
+            {
+                step++;
+
+                grid.IncrementIndividuals();
+
+                grid.FlashAndIncrementNeighbours();
+
+                grid.AdjustFlashed();
+            }
+            Console.WriteLine($"Part 2 : {step}");
         }
     }
 }
