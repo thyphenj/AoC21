@@ -28,11 +28,7 @@ namespace _10_SyntaxScoring
                         char pop = stck.Pop();
                         if (!"<>{}()[]".Contains($"{pop}{c}"))
                         {
-                            //Console.WriteLine($"found {c} in {s}");
-                            sum += c == ')' ? 3
-                                 : c == ']' ? 57
-                                 : c == '}' ? 1197
-                                 : 25137;
+                            sum += CharValue(c);
                             keep = false;
                         }
                     }
@@ -51,16 +47,29 @@ namespace _10_SyntaxScoring
                 while (s.Count > 0)
                 {
                     char c = s.Pop();
-                    int val = c switch { '(' => 1 , '[' => 2, '{' => 3, '<' => 4, _ => 0};
-                    scores[i] = scores[i] * 5 + val;
+                    scores[i] = scores[i] * 5 + CharValue(c);
                 }
-                Console.WriteLine(scores[i]);
                 i++;
             }
             Array.Sort(scores);
             Console.WriteLine($"Part 2 : {scores[scores.Length/2]}");
         }
 
+        private static int CharValue ( char c)
+        {
+            return c switch
+            {
+                ')' => 3,
+                ']' => 57,
+                '}' => 1197,
+                '>' => 25137,
+                '(' => 1,
+                '[' => 2,
+                '{' => 3,
+                '<' => 4,
+                _ => 0
+            };
+        }
 
         private static List<string> ReadInput(string input)
         {
