@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11-DumboOctopus", "11-Dumbo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12-PassagePathing", "12-PassagePathing\12-PassagePathing.csproj", "{0491D515-67E5-4ADD-9D76-0CD7DB574F13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13-TransparentOrigami", "13-TransparentOrigami\13-TransparentOrigami.csproj", "{51131752-E9FD-46BB-A15D-B663E9FF00F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{0491D515-67E5-4ADD-9D76-0CD7DB574F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0491D515-67E5-4ADD-9D76-0CD7DB574F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0491D515-67E5-4ADD-9D76-0CD7DB574F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

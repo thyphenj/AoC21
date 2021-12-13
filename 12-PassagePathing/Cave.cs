@@ -36,7 +36,11 @@ namespace _12_PassagePathing
 
         public override string ToString()
         {
-            return $"{Name.PadRight(6)} : {(Big ? 'X' : ' ')} {Neighbours.Count,3}";
+            string retval = $"{Name.PadRight(6)} : {(Big ? 'X' : ' ')} {Neighbours.Count,3} (";
+            foreach (var c in Neighbours)
+                retval += $"{c.Name},";
+            retval = retval.Substring(0, retval.Length - 1) + ")";
+            return retval;
         }
     }
 }

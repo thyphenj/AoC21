@@ -6,7 +6,7 @@ namespace _12_PassagePathing
     {
         static void Main(string[] args)
         {
-            String filename = "input.txt";
+            String filename = "tinyinput.txt";
 
             CaveSystem caves = new CaveSystem(filename);
             caves.Part1();
