@@ -6,12 +6,13 @@ namespace _14_ExtendedPolymerization
     {
         static void Main()
         {
-            string filename = "testInput.txt";
+            string filename = "Input.txt";
 
             Input input = new Input(filename);
 
             input.Part1();
 
+            input.Part2();
         }
     }
 }
