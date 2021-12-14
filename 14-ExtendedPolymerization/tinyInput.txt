@@ -1,0 +1,6 @@
+﻿AA
+
+AA -> A
+BC -> H
+HB -> C
+BH -> B

@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12-PassagePathing", "12-Pas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13-TransparentOrigami", "13-TransparentOrigami\13-TransparentOrigami.csproj", "{51131752-E9FD-46BB-A15D-B663E9FF00F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14-ExtendedPolymerization", "14-ExtendedPolymerization\14-ExtendedPolymerization.csproj", "{347B8F9B-45A6-4313-BEBA-82591A9785A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51131752-E9FD-46BB-A15D-B663E9FF00F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347B8F9B-45A6-4313-BEBA-82591A9785A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347B8F9B-45A6-4313-BEBA-82591A9785A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347B8F9B-45A6-4313-BEBA-82591A9785A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347B8F9B-45A6-4313-BEBA-82591A9785A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,9 +9,8 @@ namespace _12_PassagePathing
             String filename = "tinyinput.txt";
 
             CaveSystem caves = new CaveSystem(filename);
-            caves.Part1();
 
-            //caves = new CaveSystem(filename);
+            //caves.Part1();
             caves.Part2();
         }
     }

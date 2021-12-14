@@ -10,13 +10,16 @@ namespace _12_PassagePathing
         public List<Cave> Caves;
         public Cave Start;
         public Cave End;
+        public int RouteCount;
+        public Stack<string> Route = new Stack<string>();
+        public int SmallVisitCount;
 
         public CaveSystem(string filename)
         {
             Caves = new List<Cave>();
 
             string[] lines = File.ReadAllLines(filename);
-            foreach (string line in lines )
+            foreach (string line in lines)
             {
                 string[] tokens = line.Split('-');
                 var cave1 = new Cave(tokens[0]);
@@ -41,36 +44,91 @@ namespace _12_PassagePathing
                 if (End == null && cave1.Name == "end") End = cave1;
                 if (End == null && cave2.Name == "end") End = cave2;
             }
+
+            Caves = Caves.OrderBy(x => x.Name).ToList();
+            foreach (var c in Caves)
+                c.Neighbours = c.Neighbours.OrderBy(x => x.Name).ToList();
+
+            RouteCount = 0;
         }
 
         public void Part1()
         {
-            List<Cave> removed = new List<Cave>();
+            RouteCount = 0;
 
-            Console.WriteLine($"FROM [{Start.ToString()} TO [{End.ToString()}]");
+            Traverse_ONE(Start);
             Console.WriteLine();
 
-            Console.WriteLine(WriteCaves());
-            //Remove isolated "small" caves
+            Console.WriteLine($"Part 1 : {RouteCount}");
+        }
 
-            for (int i = Caves.Count - 1; i >= 0; i--)
+        public void Part2()
+        {
+            RouteCount = 0;
+
+            Travers_TWO(Start);
+            Console.WriteLine();
+
+            Console.WriteLine($"Part 2 : {RouteCount}");
+        }
+
+        public void Traverse_ONE(Cave currentCave)
+        {
+            Route.Push(currentCave.Name);
+            if (currentCave.Name == "end")
             {
-                var cave = Caves[i];
-                if (!cave.Big && cave.Neighbours.Count == 1 && !cave.Neighbours[0].Big)
+                OutputStack();
+                RouteCount++;
+            }
+            else
+            {
+                if (currentCave.Big || !currentCave.Visited)
                 {
-                    Caves.RemoveAt(i);
+                    currentCave.Visit();
+
+                    foreach (var cave in currentCave.Neighbours)
+                        Traverse_ONE(cave);
+
+                    currentCave.ResetVisit();
                 }
             }
-       
-
-            Console.WriteLine(WriteCaves());
-            Console.WriteLine();
-
+            Route.Pop();
         }
-        public void Part2 ()
+
+        public void Travers_TWO(Cave currentCave)
         {
+            Route.Push(currentCave.Name);
+            if (currentCave.Name == "end")
+            {
+                OutputStack();
+                RouteCount++;
+            }
+            else
+            {
+                if (currentCave.Big || !currentCave.Visited )
+                {
+                    currentCave.Visit();
 
+                    foreach (var cave in currentCave.Neighbours)
+                        if (cave.Name != "start")
+                            Travers_TWO(cave);
+
+                    currentCave.ResetVisit();
+                }
+            }
+            Route.Pop();
         }
+
+        private void OutputStack()
+        {
+            string str = "";
+            foreach (var s in Route)
+            {
+                str = $"{s}  " + str;
+            }
+            Console.WriteLine(str);
+        }
+
         public string WriteCaves()
         {
             string str = "";

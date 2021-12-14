@@ -7,12 +7,18 @@ namespace _12_PassagePathing
     public class Cave : IEquatable<Cave>
     {
         public string Name;
-        public List<Cave> Neighbours;
         public bool Big;
+        public bool Visited;
+        public int VisitCount;
+
+        public List<Cave> Neighbours;
+
         public Cave(string name)
         {
             Name = name;
             Big = Name[0] <= 'Z';
+            Visited = false;
+            VisitCount = 0;
             Neighbours = new List<Cave>();
         }
 
@@ -20,6 +26,18 @@ namespace _12_PassagePathing
         {
             if (!Neighbours.Contains(cave))
                 Neighbours.Add(cave);
+        }
+
+        public void Visit ()
+        {
+            Visited = true;
+            if ( !Big) VisitCount++;
+        }
+
+        public void ResetVisit()
+        {
+            Visited = false;
+            VisitCount--;
         }
 
         public bool Equals([AllowNull] Cave other)
