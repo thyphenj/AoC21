@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18-Snailfish", "18-Snailfis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19-BeaconScanner", "19-BeaconScanner\19-BeaconScanner.csproj", "{EF961387-C536-40AA-B98A-BE779EE09347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20-TrenchMap", "20-TrenchMap\20-TrenchMap.csproj", "{9933986B-187C-4B68-9D34-794463FE03DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{EF961387-C536-40AA-B98A-BE779EE09347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF961387-C536-40AA-B98A-BE779EE09347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF961387-C536-40AA-B98A-BE779EE09347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9933986B-187C-4B68-9D34-794463FE03DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9933986B-187C-4B68-9D34-794463FE03DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9933986B-187C-4B68-9D34-794463FE03DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9933986B-187C-4B68-9D34-794463FE03DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
