@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19-BeaconScanner", "19-Beac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20-TrenchMap", "20-TrenchMap\20-TrenchMap.csproj", "{9933986B-187C-4B68-9D34-794463FE03DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21-DiracDice", "21-DiracDice\21-DiracDice.csproj", "{9DEF623D-C0DF-4AF7-B605-F7846A661ADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24-ArithmeticLogicUnit", "24-ArithmeticLogicUnit\24-ArithmeticLogicUnit.csproj", "{C8C19775-A2B3-44F8-A072-4A5F880A96D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +127,14 @@ Global
 		{9933986B-187C-4B68-9D34-794463FE03DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9933986B-187C-4B68-9D34-794463FE03DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9933986B-187C-4B68-9D34-794463FE03DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DEF623D-C0DF-4AF7-B605-F7846A661ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DEF623D-C0DF-4AF7-B605-F7846A661ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DEF623D-C0DF-4AF7-B605-F7846A661ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DEF623D-C0DF-4AF7-B605-F7846A661ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
