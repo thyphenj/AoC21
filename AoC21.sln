@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21-DiracDice", "21-DiracDic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24-ArithmeticLogicUnit", "24-ArithmeticLogicUnit\24-ArithmeticLogicUnit.csproj", "{C8C19775-A2B3-44F8-A072-4A5F880A96D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "25-SeaCucumber", "25-SeaCucumber\25-SeaCucumber.csproj", "{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8C19775-A2B3-44F8-A072-4A5F880A96D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
