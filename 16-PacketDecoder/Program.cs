@@ -19,7 +19,6 @@ namespace _16_PacketDecoder
 
             var p = new Packet(new BitStream(str));
 
-            //Console.WriteLine(p.Stream.VersionSum);
             Console.WriteLine(p.Value);
         }
     }

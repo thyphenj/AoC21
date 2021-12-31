@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24-ArithmeticLogicUnit", "2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "25-SeaCucumber", "25-SeaCucumber\25-SeaCucumber.csproj", "{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17-TrickShot", "17-TrickShot\17-TrickShot.csproj", "{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3C90DD-8D64-40E1-9A23-14F862A5D73C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

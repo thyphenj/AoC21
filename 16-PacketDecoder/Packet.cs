@@ -14,8 +14,6 @@ namespace _16_PacketDecoder
 
         public ulong Value;
 
-        static public uint Depth;
-
         public Packet(BitStream stream)
         {
             Stream = stream;
