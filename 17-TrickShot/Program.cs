@@ -27,14 +27,14 @@ namespace _17_TrickShot
 
             int XY = MaxHeightWillHitXY();
 
-            Console.WriteLine();
+            Console.WriteLine($"Part 1 : {XY}");
         }
 
         static int MaxHeightWillHitXY()
         {
             int maxheight = 0;
 
-            var hitters = new HashSet<(Target,Target)>();
+            var hitters = new HashSet<Hitters>();
 
             for (int x = Xmin; x < Xmax; x++)
             {
@@ -44,17 +44,19 @@ namespace _17_TrickShot
                     {
                         foreach (var ty in YHitters.Where(s => s.TargetValue == y))
                         {
-                            if (tx.StepCount == ty.StepCount)
+                            if (tx.StepCount == ty.StepCount || (tx.StepCount < ty.StepCount && tx.Repeats))
                             {
                                 int height = ty.Velocity * (ty.Velocity + 1) / 2;
                                 if (height > maxheight)
                                     maxheight = height;
-                                hitters.Add((tx, ty));
+                                hitters.Add(new Hitters(tx, ty));
                             }
                         }
                     }
                 }
             }
+            hitters = hitters.OrderBy(x => x.X.Velocity).OrderBy(x=>x.Y.Velocity).ToHashSet<Hitters>();
+
             return maxheight;
         }
 
@@ -62,31 +64,26 @@ namespace _17_TrickShot
         {
             var retval = new HashSet<Target>();
 
-            for (int xVelocity = Xmin; xVelocity <= Xmax; xVelocity++)
+            for (int xTarget = Xmin; xTarget <= Xmax; xTarget++)
             {
-                for (int i = 1; i < triang.Length; i++)
+                for (int xVelocity = 1; xVelocity < triang.Length; xVelocity++)
                 {
-                    for (int j = 1; j < i; j++)
+                    for (int j = 0; j < xVelocity; j++)
                     {
-                        if (xVelocity == (triang[i] - triang[j]))
-                            retval.Add(new Target(xVelocity, i, i - j));
+                        if (xTarget == (triang[xVelocity] - triang[j]))
+                        {
+                            retval.Add(new Target(xTarget, xVelocity, xVelocity - j));
+                        }
                     }
                 }
             }
-            Console.WriteLine("---X HITTERS---");
-            foreach (var p in retval)
-            {
-                Console.Write($"{p.TargetValue,3} in {p.StepCount,2} steps - {p.Velocity,3}    ");
-                int total = p.Velocity;
-                int sub = 1;
-                while (total < p.TargetValue)
-                {
-                    total += (p.Velocity - sub);
-                    Console.Write($"{total,3}  ");
-                    sub++;
-                }
-                Console.WriteLine();
-            }
+            retval = retval.OrderBy(x => x.StepCount).ToHashSet<Target>();
+
+            //Console.WriteLine("---X HITTERS---");
+            //foreach (var p in retval)
+            //{
+            //    Console.WriteLine(p.ToStr());
+            //}
             return retval;
         }
 
@@ -94,35 +91,26 @@ namespace _17_TrickShot
         {
             var retval = new HashSet<Target>();
 
-            for (int yVelocity = Ymin; yVelocity <= Ymax; yVelocity++)
+            for (int yTarget = Ymin; yTarget <= Ymax; yTarget++)
             {
-                for (int i = 1; i < triang.Length; i++)
+                for (int yVelocity = 1; yVelocity < triang.Length; yVelocity++)
                 {
-                    for (int j = 1; j < i; j++)
+                    for (int j = 0; j < yVelocity; j++)
                     {
-                        if (yVelocity == (triang[j] - triang[i]))
+                        if (yTarget == (triang[j] - triang[yVelocity]))
                         {
-                            retval.Add(new Target(yVelocity, vel: j, cnt: i + j, YAxis: true));
+                            retval.Add(new Target(yTarget, vel: j, cnt: yVelocity + j, yAxis: true));
                         }
                     }
                 }
             }
-            Console.WriteLine("---Y HITTERS---");
-            foreach (var p in retval)
-            {
-                Console.Write($"{p.TargetValue,3} in {p.StepCount,3} steps - {p.Velocity,3}    ");
-                int total = p.Velocity;
-                int sub = 1;
-                while (total > p.TargetValue)
-                {
-                    total += (p.Velocity - sub);
-                    //if (total < 0)
-                        Console.Write($"{total,3}  ");
+            retval = retval.OrderBy(x => x.StepCount).ToHashSet<Target>();
 
-                    sub++;
-                }
-                Console.WriteLine();
-            }
+            //Console.WriteLine("---Y HITTERS---");
+            //foreach (var p in retval)
+            //{
+            //    Console.WriteLine(p.ToStr());
+            //}
             return retval;
         }
 
