@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "25-SeaCucumber", "25-SeaCuc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17-TrickShot", "17-TrickShot\17-TrickShot.csproj", "{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22-ReactorReboot", "22-ReactorReboot\22-ReactorReboot.csproj", "{D3589BD2-9909-47B2-A1BB-D50C4F43630E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23-Amphipod", "23-Amphipod\23-Amphipod.csproj", "{488B8FEB-0DC1-40C9-84AE-0A034BCE76F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,14 @@ Global
 		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A56B7FE7-03A5-4352-ABE6-FE298C0384EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3589BD2-9909-47B2-A1BB-D50C4F43630E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3589BD2-9909-47B2-A1BB-D50C4F43630E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3589BD2-9909-47B2-A1BB-D50C4F43630E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3589BD2-9909-47B2-A1BB-D50C4F43630E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488B8FEB-0DC1-40C9-84AE-0A034BCE76F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488B8FEB-0DC1-40C9-84AE-0A034BCE76F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488B8FEB-0DC1-40C9-84AE-0A034BCE76F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488B8FEB-0DC1-40C9-84AE-0A034BCE76F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
