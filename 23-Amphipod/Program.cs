@@ -6,7 +6,7 @@ namespace _23_Amphipod
     {
         static void Main(string[] args)
         {
-            string filename = "input.txt";
+            string filename = "inCorridor.txt";
 
             InputFile input = new InputFile(filename);
 

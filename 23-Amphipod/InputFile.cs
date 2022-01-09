@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
@@ -21,6 +22,7 @@ namespace _23_Amphipod
                 int retval = 0;
 
                 var state = new State(RawInput);
+                List<State> moves = state.PossibleMoves();
 
                 Console.WriteLine(state);
                 return retval;

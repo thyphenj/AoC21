@@ -11,10 +11,13 @@ namespace _23_Amphipod
 
         public bool IsRoom;
 
-        public Cell (char ch)
+        public int Position;
+
+        public Cell (int pos,char ch)
         {
             Value = ch;
             IsRoom = false;
+            Position = pos;
         }
         public Cell(char ch, char roomName)
         {
