@@ -6,7 +6,15 @@ namespace _23_Amphipod
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string filename = "input.txt";
+
+            InputFile input = new InputFile(filename);
+
+            Console.WriteLine(input);
+            Console.WriteLine();
+
+            Console.WriteLine(input.Part1);
+
         }
     }
 }
