@@ -10,36 +10,55 @@ namespace _23_Amphipod
         public Cell[] Corridor;
         public Cell[,] Rooms;
 
+        private int _roomLen;
+        private int _corrLen;
+
         public State(string[] input)
         {
-            Corridor = new Cell[11];
-            for (int i = 0; i < 11; i++)
+            _corrLen = input[0].Length - 2;
+            _roomLen = input.Length - 3;
+
+            Corridor = new Cell[_corrLen];
+            for (int i = 0; i < _corrLen; i++)
             {
                 Corridor[i] = new Cell(i, input[1][i + 1]);
                 Corridor[i].IsRestAllowed = !(i == 2 || i == 4 || i == 6 || i == 8);
             }
-            Rooms = new Cell[4, 2];
+            Rooms = new Cell[4, _roomLen];
             for (int i = 0; i < 4; i++)
             {
-                Rooms[i, 1] = new Cell(input[2][2 * i + 3], "ABCD"[i]);
-                Rooms[i, 0] = new Cell(input[3][2 * i + 3], "ABCD"[i]);
+                for (int j = 0; j < _roomLen; j++)
+                {
+                    Rooms[i, j] = new Cell(input[j + 2][2 * i + 3], "ABCD"[i]);
+                }
             }
+        }
+
+        public State(State state)
+        {
+            _roomLen = state._roomLen;
+            _corrLen = state._corrLen;
+            Corridor = new Cell[this._corrLen];
+            Rooms = new Cell[4, _roomLen];
+
+            Array.Copy(state.Corridor, Corridor, state.Corridor.Length);
+            Array.Copy(state.Rooms, Rooms, state.Rooms.Length);
         }
 
         public List<State> PossibleMoves()
         {
             List<State> retval = new List<State>();
 
-            foreach (var cor in Corridor)
+            foreach (var corrCell in Corridor)
             {
-                if (cor.IsOccupied)
+                if (corrCell.IsOccupied)
                 {
-                    var targetCell = Rooms[RoomIndex(cor.Value), 0];
-                    if (targetCell.Value == cor.Value || !targetCell.IsOccupied)
+                    var targetCell = Rooms[RoomIndex(corrCell.Value), 0];
+                    if (targetCell.Value == corrCell.Value || !targetCell.IsOccupied)
                     {
-                        if (IsRouteValid(targetCell.Value, cor.Position))
+                        if (IsRouteValid(corrCell))
                         {
-                            int Cost = Move(cor);
+                            retval.Add(Move(corrCell));
                         }
                     }
                 }
@@ -48,18 +67,24 @@ namespace _23_Amphipod
             return retval;
         }
 
-        private int Move(Cell cor)
+        private State Move(Cell cor)
         {
-            int retval = 0;
+            State retval = new State(this);
+
+            int cost = 0;
+
+            retval.Rooms[RoomIndex(cor.Value), 0].Value = cor.Value;
+            retval.Corridor[cor.Position].Value = '.';
 
             return retval;
         }
-        private bool IsRouteValid(char targetRoom, int corridorPos)
+
+        private bool IsRouteValid(Cell corrCell)
         {
             bool success = true;
 
-            int from = corridorPos;
-            int to = DoorIndex(targetRoom);
+            int from = corrCell.Position;
+            int to = DoorIndex(corrCell.Value);
             if (from > to)
             {
                 int t = to;
@@ -88,24 +113,27 @@ namespace _23_Amphipod
             // line 0
             string str = "#############\n";
 
-            // line 1
+            // corridor
             str += "#";
             foreach (var ch in Corridor)
                 str += ch.Value.ToString();
             str += "#\n";
 
-            // line 2
+            // Room line 0
             str += "###";
             for (int i = 0; i < 4; i++)
-                str += $"{Rooms[i, 1].Value.ToString()}#";
+                str += $"{Rooms[i, 0].Value}#";
             str += "##\n";
 
-            // line 3
-            str += "  #";
-            for (int i = 0; i < 4; i++)
-                str += $"{Rooms[i, 0].Value.ToString()}#";
-            str += "\n";
 
+            // subsequent room lines
+            for (int j = 1; j < _roomLen; j++)
+            {
+                str += "  #";
+                for (int i = 0; i < 4; i++)
+                    str += $"{Rooms[i, j].Value}#";
+                str += "\n";
+            }
             // line 4
             str += "  #########";
 
@@ -123,12 +151,12 @@ namespace _23_Amphipod
 
             // line 2
             for (int i = 0; i < 4; i++)
-                str += $"{Rooms[i, 1].Value.ToString()}  ";
+                str += $"{Rooms[i, 0].Value.ToString()}  ";
             str += "   ";
 
             // line 3
             for (int i = 0; i < 4; i++)
-                str += $"{Rooms[i, 0].Value.ToString()}  ";
+                str += $"{Rooms[i, 1].Value.ToString()}  ";
 
             return str;
         }

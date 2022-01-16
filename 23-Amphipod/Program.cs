@@ -6,12 +6,18 @@ namespace _23_Amphipod
     {
         static void Main(string[] args)
         {
-            string filename = "inCorridor.txt";
+            //string filename = "input.txt";
+            //InputFile input = new InputFile(filename);
 
-            InputFile input = new InputFile(filename);
-
-            Console.WriteLine(input);
-            Console.WriteLine();
+            string[] testInput =
+                {
+                    "#############",
+                    "#.A.........#",
+                    "###.#C#B#D###",
+                    "  #A#D#C#B#",
+                    "  #########"
+                };
+            InputFile input = new InputFile(testInput);
 
             Console.WriteLine(input.Part1);
 

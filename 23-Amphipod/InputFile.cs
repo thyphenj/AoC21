@@ -15,6 +15,11 @@ namespace _23_Amphipod
             RawInput = File.ReadAllLines(filename);
         }
 
+        public InputFile(string[] input)
+        {
+            RawInput = input;
+        }
+
         public int Part1
         {
             get
@@ -22,9 +27,14 @@ namespace _23_Amphipod
                 int retval = 0;
 
                 var state = new State(RawInput);
+
+                var state2 = new State(state);
+                
+
                 List<State> moves = state.PossibleMoves();
 
                 Console.WriteLine(state);
+                Console.WriteLine(moves[0]);
                 return retval;
             }
         }
